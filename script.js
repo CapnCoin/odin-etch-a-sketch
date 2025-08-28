@@ -23,6 +23,10 @@ function makeGrid(size){
                 `width: ${Math.floor(containerHeight / size)}px; height: ${Math.floor(containerHeight / size)}px; background-color: white; border: 2px solid black;`
             );
 
+            block.addEventListener("mouseover", function(e){
+                e.target.style.backgroundColor = "black";
+            });
+
             row.appendChild(block);
         }
 
