@@ -1,10 +1,11 @@
 function makeGrid(size){
     let container = document.getElementById("grid");
-    container.setAttribute("style",
-        "display: flex; flex-direction: column; height: 100vh; width: 100%;"
-    );
+    //get viewport height
+    const viewPortHeight = Math.floor(document.documentElement.clientHeight);
 
-    let containerHeight = container.offsetHeight;
+    container.setAttribute("style",
+        `display: flex; flex-direction: column; height: ${viewPortHeight}px; width: ${viewPortHeight}px;`
+    );
 
     for(let r = 0; r < size; r++){
 
@@ -12,7 +13,7 @@ function makeGrid(size){
         let row = document.createElement("div")
         row.setAttribute("class", "row");
         row.setAttribute("style",
-            `display: flex; background-color: black; width: ${containerHeight}px; height: ${Math.floor(containerHeight / size)}px;`
+            `display: flex; background-color: black; height: 100%; width: 100%;`
         );
         
         //add blocks to row
@@ -20,7 +21,7 @@ function makeGrid(size){
             let block = document.createElement("div");
             block.setAttribute('class', 'block');
             block.setAttribute("style",
-                `width: ${Math.floor(containerHeight / size)}px; height: ${Math.floor(containerHeight / size)}px; background-color: white; border: 2px solid black;`
+                `width: 100%; height: 100%; background-color: white; border: 2px solid black;`
             );
 
             block.addEventListener("mouseover", function(e){
