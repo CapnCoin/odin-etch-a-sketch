@@ -36,7 +36,6 @@ function makeGrid(size){
 }
 
 function clearGrid(){
-    console.log('clearGrid() called');
     //get the grid
     let grid = document.getElementById("grid");
     //get all blocks by class
@@ -48,11 +47,41 @@ function clearGrid(){
     });
 }
 
+function deleteGrid(){
+    const grid = document.getElementById("grid");
+    //loop while grid has children
+    while(grid.firstChild){
+        grid.removeChild(grid.firstChild);
+    }
+}
+
 const resetButton = document.getElementById("reset");
-console.log(resetButton);
+const resizeButton = document.getElementById("resize");
 
 resetButton.addEventListener("click", () => {
     clearGrid();
 });
 
-makeGrid(50);
+resizeButton.addEventListener("click", () => {
+    //get input and convert to int
+    let size = parseInt(
+        prompt("Enter new grid size", '9'), 10
+    );
+
+    //check for nan
+    if(isNaN(size)) size = 9;
+
+    //if size < 1 set size to 1
+    if(size < 1){
+        size = 1;
+    }
+    //if size > 100 set size to 100
+    if(size > 100){
+        size = 100;
+    }
+
+    deleteGrid();
+    makeGrid(size);
+});
+
+makeGrid(9);
