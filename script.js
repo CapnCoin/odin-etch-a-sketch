@@ -37,6 +37,15 @@ function makeGrid(size){
 
 function clearGrid(){
     console.log('clearGrid() called');
+    //get the grid
+    let grid = document.getElementById("grid");
+    //get all blocks by class
+    let blocks = grid.querySelectorAll('.block');
+    //loop through blocks
+    blocks.forEach(block => {
+        //change background color to white
+        block.style.backgroundColor = "white";
+    });
 }
 
 const resetButton = document.getElementById("reset");
