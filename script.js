@@ -10,7 +10,7 @@ function makeGrid(size){
 
         //create row
         let row = document.createElement("div")
-        row.setAttribute("id", `row${r}`);
+        row.setAttribute("class", "row");
         row.setAttribute("style",
             `display: flex; background-color: black; width: ${containerHeight}px; height: ${Math.floor(containerHeight / size)}px;`
         );
@@ -18,7 +18,7 @@ function makeGrid(size){
         //add blocks to row
         for(let c = 0; c < size; c++){
             let block = document.createElement("div");
-            block.setAttribute("id", `block${c}`);
+            block.setAttribute('class', 'block');
             block.setAttribute("style",
                 `width: ${Math.floor(containerHeight / size)}px; height: ${Math.floor(containerHeight / size)}px; background-color: white; border: 2px solid black;`
             );
@@ -34,5 +34,16 @@ function makeGrid(size){
         container.appendChild(row);
     }
 }
+
+function clearGrid(){
+    console.log('clearGrid() called');
+}
+
+const resetButton = document.getElementById("reset");
+console.log(resetButton);
+
+resetButton.addEventListener("click", () => {
+    clearGrid();
+});
 
 makeGrid(50);
