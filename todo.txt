@@ -1,1 +1,0 @@
-add event listeners to 'block' items so we can change the color when hovered on
